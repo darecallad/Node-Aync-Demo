@@ -44,3 +44,39 @@ function getCommits(repo) {
     }, 2000);
   });
 }
+
+// get user id, get username, get repo, get commit
+
+function getUser(id) {
+  new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve({ id: id, username: " Johnson" });
+    }, 2000);
+  });
+}
+
+function getRepo(username) {
+  new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(["repo1", "repo2"]);
+    }, 2000);
+  });
+}
+
+function getCommits(repo) {
+  new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("Commits");
+    }, 2000);
+  });
+}
+
+function displayCommits(commits) {
+  console.log(commits);
+}
+
+getUser(1)
+  .then((user) => getRepo(user.username))
+  .then((repos) => getCommits(repos[0]))
+  .then((commit) => console.log("Commit : ", commit))
+  .catch((ex) => console.log(ex.message));
