@@ -1,24 +1,11 @@
 const p = new Promise((resolve, reject) => {
-  // Kick off some asunc work
-  // ....
+  // Async work
   setTimeout(() => {
     // resolve(1);
-    reject(new Error("Message"));
-  }, 2000);
-  //   reject();
-});
-
-p.then((result) => console.log("Result", result)).catch((err) =>
-  console.log("Error", err.message)
-);
-
-const p = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    resolve(1);
-    //    reject(new Error("Error Message"));
+    reject(new Error("Showing error message."));
   }, 2000);
 });
 
-p.then((result) => console.log("Resolve result : ", result)).catch((err) =>
-  console.log(err.message)
+p.then((result) => console.log("Solve Result : ", result)).catch((ex) =>
+  console.log("Error : ", ex.message)
 );
