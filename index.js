@@ -2,7 +2,6 @@ console.log("Before");
 getUser(1, getRepo);
 // cannot do const user = getUser(1);
 //Callbacks
-
 // get raid of Callback hell
 function getReop(user) {
   getRepo(user.gitHubUsername, getCommits);
@@ -15,6 +14,7 @@ function getCommits(repo) {
 }
 
 //Promises
+
 //Async/await
 
 //Dealing with Callback function
