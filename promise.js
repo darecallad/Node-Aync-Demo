@@ -1,11 +1,8 @@
 const p = new Promise((resolve, reject) => {
-  // Async work
-  setTimeout(() => {
-    // resolve(1);
-    reject(new Error("Showing error message."));
-  }, 2000);
+  resolve(1);
+  reject(new Error("Message"));
 });
 
-p.then((result) => console.log("Solve Result : ", result)).catch((ex) =>
-  console.log("Error : ", ex.message)
-);
+p.then((result) => console.log("Result: ", result)).catch((ex) => {
+  console.log("Error: ", ex.message);
+});

@@ -18,16 +18,29 @@ function getCommits(repo) {
 //Async/await
 
 //Dealing with Callback function
-function getUser(id, callback) {
-  setTimeout(() => {
-    console.log("Reading a user from a database.");
-    callback({ id: id, gitHubUsername: "John" });
-  }, 2000);
+function getUser(id) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log("Reading a user from a database.");
+      resolve({ id: id, gitHubUsername: "John" });
+    }, 2000);
+  });
 }
 
-function getRepo(username, callback) {
-  setTimeout(() => {
-    console.log("Loading Repo for :" + username);
-    callback(["repo1", "repo2", "repo3"]);
-  }, 2000);
+function getRepo(username) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log("Loading Repo for :" + username);
+      resolve(["repo1", "repo2", "repo3"]);
+    }, 2000);
+  });
+}
+
+function getCommits(repo) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log("Calling Github API...");
+      resolve(["commit"]);
+    }, 2000);
+  });
 }
