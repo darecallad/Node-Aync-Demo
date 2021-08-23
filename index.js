@@ -75,8 +75,23 @@ function displayCommits(commits) {
   console.log(commits);
 }
 
-getUser(1)
-  .then((user) => getRepo(user.username))
-  .then((repos) => getCommits(repos[0]))
-  .then((commit) => console.log("Commit : ", commit))
-  .catch((ex) => console.log(ex.message));
+// getUser(1)
+//   .then((user) => getRepo(user.username))
+//   .then((repos) => getCommits(repos[0]))
+//   .then((commit) => console.log("Commit : ", commit))
+//   .catch((ex) => console.log(ex.message));
+
+// Async and Await approach
+async function displayCommit() {
+  try {
+    const user = await getUser(1);
+    const repos = await getRepo(user.username);
+    const commit = await getCommits(repo[0]);
+    console.log(commit);
+  } catch (ex) {
+    console.log(ex.message);
+  }
+}
+// use try catch to get error
+
+displayCommits();
