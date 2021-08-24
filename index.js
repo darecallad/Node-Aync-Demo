@@ -1,17 +1,17 @@
 console.log("Before");
-getUser(1, getRepo);
-// cannot do const user = getUser(1);
-//Callbacks
-// get raid of Callback hell
-function getReop(user) {
-  getRepo(user.gitHubUsername, getCommits);
-}
-function displayCommits(commits) {
-  console.log(commits);
-}
-function getCommits(repo) {
-  getCommits(repo, displayCommits);
-}
+// getUser(1, getRepo);
+// // cannot do const user = getUser(1);
+// //Callbacks
+// // get raid of Callback hell
+// function getReop(user) {
+//   getRepo(user.gitHubUsername, getCommits);
+// }
+// function displayCommits(commits) {
+//   console.log(commits);
+// }
+// function getCommits(repo) {
+//   getCommits(repo, displayCommits);
+// }
 
 //Promises
 
@@ -47,33 +47,33 @@ function getCommits(repo) {
 
 // get user id, get username, get repo, get commit
 
-function getUser(id) {
-  new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve({ id: id, username: " Johnson" });
-    }, 2000);
-  });
-}
+// function getUser(id) {
+//   new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       resolve({ id: id, username: " Johnson" });
+//     }, 2000);
+//   });
+// }
 
-function getRepo(username) {
-  new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(["repo1", "repo2"]);
-    }, 2000);
-  });
-}
+// function getRepo(username) {
+//   new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       resolve(["repo1", "repo2"]);
+//     }, 2000);
+//   });
+// }
 
-function getCommits(repo) {
-  new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve("Commits");
-    }, 2000);
-  });
-}
+// function getCommits(repo) {
+//   new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       resolve("Commits");
+//     }, 2000);
+//   });
+// }
 
-function displayCommits(commits) {
-  console.log(commits);
-}
+// function displayCommits(commits) {
+//   console.log(commits);
+// }
 
 // getUser(1)
 //   .then((user) => getRepo(user.username))
@@ -86,7 +86,7 @@ async function displayCommit() {
   try {
     const user = await getUser(1);
     const repos = await getRepo(user.username);
-    const commit = await getCommits(repo[0]);
+    const commit = await getCommits(repos[0]);
     console.log(commit);
   } catch (ex) {
     console.log(ex.message);
@@ -94,4 +94,4 @@ async function displayCommit() {
 }
 // use try catch to get error
 
-displayCommits();
+displayCommit();
